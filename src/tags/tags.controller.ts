@@ -7,6 +7,8 @@ export class TagsController {
 
   @Get()
   async getTags(){
-    return this.tagsService.getTags()
+    const allTags=await this.tagsService.getAll()
+    const tag:string[]=allTags.map(tag=> tag.name)
+    return {tag}
   }
 }
