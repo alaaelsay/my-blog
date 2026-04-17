@@ -11,7 +11,7 @@ const config:PostgresConnectionOptions={
     database:"blog2",
     entities:[__dirname + '/**/*.entity.{ts,js}'],
     migrationsTableName:'migrations',
-    migrations:[__dirname + 'migrations/**/*.ts']
+    migrations:[__dirname + '/migrations/**/*.ts']
 }
 
 const AppDataSource= new DataSource(config)
