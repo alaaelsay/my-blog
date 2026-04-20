@@ -4,6 +4,7 @@ import { CreateUserDto } from './dto/createUser.dto';
 import { IUserResponse } from './type/usersResponse.interface';
 import { UserLoginDto } from './dto/userLogin.dto';
 import  type { authRequest } from '@/types/expressRequest.interface';
+import { User } from './decorators/user.decorator';
 
 @Controller()
 export class UsersController {
@@ -23,8 +24,7 @@ export class UsersController {
   }
 
   @Get('users')
-  async getCurrentUser(@Req() request: authRequest): Promise<IUserResponse>{
-    console.log(request.user)
-    return this.usersService.generateUserResponse(request.user)
+  async getCurrentUser(@User() user): Promise<IUserResponse>{
+    return this.usersService.generateUserResponse(user)
   }
 }
